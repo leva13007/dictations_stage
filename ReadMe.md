@@ -14,24 +14,35 @@ dics/
 ├── 0001/
 │   ├── playlist.json           # Ordered list of sentences with audio references
 │   ├── Text.md                 # Full dictation text (for reference / authoring) **optional**
+│   ├── ReadMe.md               # Description, level, video link, etc. **optional**
 │   └── sounds/
 │       ├── 0001-01.mp3         # Audio for sentence 1
 │       ├── 0001-02.mp3         # Audio for sentence 2
 │       └── ...
 ├── 0002/
 │   ├── playlist.json
+│   ├── ReadMe.md
 │   ├── Text.md
 │   └── sounds/
 │       └── ...
 └── ...
 ```
 
+## Available Dictations
+
+| ID | Title | Video |
+|---|---|---|
+| 0001 | The Reading Crisis in Modern Society | — |
+| 0002 | Is Reading Always Beneficial? | [▶ YouTube](https://youtu.be/SYihTCG_9Xk) |
+| 0003 | Addressing the Reading Crisis | — |
+
 ## File Descriptions
 
 | File | Purpose |
 |---|---|
-| `dics/index.json` | Master index listing every available dictation (id + title). The app reads this to populate the dictation selector. |
+| `dics/index.json` | Master index listing every available dictation (id + title + optional video link). The app reads this to populate the dictation selector. |
 | `dics/<id>/playlist.json` | Ordered array of sentences. Each entry contains the sentence text, a sequential id, and the relative path to its audio file. |
+| `dics/<id>/ReadMe.md` | *(optional)* Description of the dictation: difficulty level, companion video link, usage tips. Helps visitors browsing the repo on GitHub. |
 | `dics/<id>/Text.md` | The full dictation text in Markdown. Used as a source document when creating audio files — not consumed by the app directly. |
 | `dics/<id>/sounds/*.mp3` | MP3 audio files, one per sentence. Named `<dic-id>-<sentence-number>.mp3`. |
 
@@ -49,6 +60,7 @@ Pick the next available four-digit ID (e.g. if `0003` exists, use `0004`).
 dics/
 └── 0004/
     ├── playlist.json
+    ├── ReadMe.md          # optional
     ├── Text.md
     └── sounds/
 ```
@@ -129,12 +141,14 @@ Add an entry to `dics/index.json`:
 {
   "dics": [
     { "id": "0001", "title": "The Reading Crisis in Modern Society" },
-    { "id": "0002", "title": "Is Reading Always Beneficial?" },
+    { "id": "0002", "title": "Is Reading Always Beneficial?", "video": "https://youtu.be/SYihTCG_9Xk" },
     { "id": "0003", "title": "Addressing the Reading Crisis" },
     { "id": "0004", "title": "My Dictation Title" }
   ]
 }
 ```
+
+> **Optional:** If the dictation has an accompanying video (e.g. on YouTube), add a `"video"` field with the URL.
 
 ### 7. Commit and push
 
@@ -159,6 +173,7 @@ To use these dictations in the app, configure the app's data base URL to point t
 ## Checklist for a New Dictation
 
 - [ ] Created folder `dics/<id>/` with `sounds/` subfolder
+- [ ] *(optional)* Added `ReadMe.md` with description, level, video link, etc.
 - [ ] Wrote `Text.md` with title + one sentence per line
 - [ ] Generated MP3 files named `<id>-<nn>.mp3` (one per sentence)
 - [ ] Created `playlist.json` with correct `id`, `text`, and `audio` fields
