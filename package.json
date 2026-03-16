@@ -1,0 +1,13 @@
+{
+  "name": "dictations",
+  "version": "1.0.0",
+  "description": "Dictation content (playlists, audio, texts) for the Dictation App — served via GitHub Pages",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leva13007/dictations.git"
+  },
+  "homepage": "https://leva13007.github.io/dictations/",
+  "author": "leva13007",
+  "license": "MIT"
+}
