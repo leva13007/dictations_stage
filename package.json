@@ -1,6 +1,6 @@
 {
   "name": "dictations",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Dictation content (playlists, audio, texts) for the Dictation App — served via GitHub Pages",
   "private": true,
   "repository": {
@@ -8,6 +8,14 @@
     "url": "https://github.com/leva13007/dictations.git"
   },
   "homepage": "https://leva13007.github.io/dictations/",
+  "scripts": {
+    "gen": "tsx src/generate-playlist.ts"
+  },
   "author": "leva13007",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
 }

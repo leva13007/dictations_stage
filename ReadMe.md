@@ -10,40 +10,41 @@ You can open that app by following the link above, or by visiting:
 
 ```
 dics/
-├── index.json                  # Master list of all dictations
+├── index.json                  # Master index of all dictations
 ├── 0001/
+│   ├── dic.json                # Dictation metadata (level, voice, tags, etc.)
 │   ├── playlist.json           # Ordered list of sentences with audio references
-│   ├── Text.md                 # Full dictation text (for reference / authoring) **optional**
-│   ├── ReadMe.md               # Description, level, video link, etc. **optional**
+│   ├── Text.md                 # Full dictation text (source for generation)
+│   ├── ReadMe.md               # Description, video link, etc. **optional**
 │   └── sounds/
 │       ├── 0001-01.mp3         # Audio for sentence 1
 │       ├── 0001-02.mp3         # Audio for sentence 2
 │       └── ...
-├── 0002/
-│   ├── playlist.json
-│   ├── ReadMe.md
-│   ├── Text.md
-│   └── sounds/
-│       └── ...
 └── ...
+src/
+└── generate-playlist.ts        # Generation script
 ```
 
 ## Available Dictations
 
-| ID | Title | Video |
-|---|---|---|
-| 0001 | The Reading Crisis in Modern Society | — |
-| 0002 | Is Reading Always Beneficial? | [▶ YouTube](https://youtu.be/SYihTCG_9Xk) |
-| 0003 | Addressing the Reading Crisis | — |
+| ID | Title | Level | Video |
+|---|---|---|---|
+| 0001 | The Reading Crisis in Modern Society | B2 | — |
+| 0002 | Is Reading Always Beneficial? | B2 | [▶ YouTube](https://youtu.be/SYihTCG_9Xk) |
+| 0003 | Addressing the Reading Crisis | B2 | — |
+| 0004 | Living in a City | B2 | — |
+| 0005 | Working from Home | B2 | — |
+| 0006 | Studying English online | B2 | — |
 
 ## File Descriptions
 
 | File | Purpose |
 |---|---|
-| `dics/index.json` | Master index listing every available dictation (id + title + optional video link). The app reads this to populate the dictation selector. |
-| `dics/<id>/playlist.json` | Ordered array of sentences. Each entry contains the sentence text, a sequential id, and the relative path to its audio file. |
-| `dics/<id>/ReadMe.md` | *(optional)* Description of the dictation: difficulty level, companion video link, usage tips. Helps visitors browsing the repo on GitHub. |
-| `dics/<id>/Text.md` | The full dictation text in Markdown. Used as a source document when creating audio files — not consumed by the app directly. |
+| `dics/index.json` | Master index with metadata for every dictation. The app reads this to populate the dictation selector. |
+| `dics/<id>/dic.json` | Per-dictation metadata: level, sentence count, voice info, tags, video link, creation date. |
+| `dics/<id>/playlist.json` | Ordered array of sentences. Each entry has an `id`, `text`, and `audio` path. |
+| `dics/<id>/ReadMe.md` | *(optional)* Human-readable description for GitHub browsing: difficulty level, companion video, usage tips. |
+| `dics/<id>/Text.md` | The full dictation text. Used as the source document for generating `playlist.json` and `dic.json`. |
 | `dics/<id>/sounds/*.mp3` | MP3 audio files, one per sentence. Named `<dic-id>-<sentence-number>.mp3`. |
 
 ---
@@ -52,22 +53,11 @@ dics/
 
 ### 1. Choose an ID
 
-Pick the next available four-digit ID (e.g. if `0003` exists, use `0004`).
+Pick the next available four-digit ID (e.g. if `0006` exists, use `0007`).
 
-### 2. Create the folder structure
+### 2. Create the folder and write the text
 
-```
-dics/
-└── 0004/
-    ├── playlist.json
-    ├── ReadMe.md          # optional
-    ├── Text.md
-    └── sounds/
-```
-
-### 3. Write the text
-
-Create `Text.md` with the full dictation text. The first line should be the title as a Markdown heading. Each subsequent line is **one sentence** that will become a separate audio clip:
+Create the folder `dics/<id>/` and add a `Text.md` file inside. The first line should be the title as a Markdown heading. Each subsequent line is **one sentence** that will become a separate audio clip:
 
 ```markdown
 # My Dictation Title
@@ -78,81 +68,141 @@ Numbers should be written out as words, for example twenty five.
 
 > **Tip:** Write numbers as words (e.g. "twenty five" instead of "25") since learners will be typing what they hear.
 
-### 4. Generate audio files
+If the file contains a `---` separator, the script uses only the **last section** (useful for keeping drafts/notes at the top).
 
-Record or generate one MP3 file per sentence. Place them in the `sounds/` folder using the naming convention:
+### 3. Run the generation script
+
+```bash
+yarn gen <dic-id>
+```
+
+This single command does everything:
+
+- Creates `playlist.json` from the sentences in `Text.md`
+- Creates `dic.json` with metadata (unknown fields set to `null` / empty arrays)
+- Creates the `sounds/` folder if it doesn't exist
+- Adds (or updates) the entry in `dics/index.json`
+
+### 4. Add audio files
+
+Place one MP3 file per sentence in the `sounds/` folder using the naming convention:
 
 ```
 <dic-id>-<sentence-number>.mp3
 ```
 
-For example, dictation `0004` with 5 sentences:
+For example, dictation `0007` with 5 sentences:
 
 ```
 sounds/
-├── 0004-01.mp3
-├── 0004-02.mp3
-├── 0004-03.mp3
-├── 0004-04.mp3
-└── 0004-05.mp3
+├── 0007-01.mp3
+├── 0007-02.mp3
+├── 0007-03.mp3
+├── 0007-04.mp3
+└── 0007-05.mp3
 ```
 
 Sentence numbers are zero-padded to two digits (`01`, `02`, … `99`).
 
-### 5. Create the playlist
+### 5. Fill in metadata (optional)
 
-Create `playlist.json` — a JSON array where each object has:
+Edit the generated `dic.json` to fill in known values:
 
-| Field | Type | Description |
-|---|---|---|
-| `id` | number | Sequential sentence number, starting at 1 |
-| `text` | string | The sentence text (must match `Text.md`) |
-| `audio` | string | Relative path to the audio file from the repo root |
+```json
+{
+  "id": "0007",
+  "title": "My Dictation Title",
+  "level": "B2",
+  "sentences": 5,
+  "duration_sec": null,
+  "voice": {
+    "voice_name": "Rowan – Gentle, Soft-Spoken & Warm",
+    "voice_id": "kLhAstPcnnPxqzk6gS5i",
+    "provider": "ElevenLabs",
+    "type": "man"
+  },
+  "features": [],
+  "tags": ["business"],
+  "video": "https://youtu.be/...",
+  "created_at": "2026-03-19T12:00:00Z"
+}
+```
 
-Example `dics/0004/playlist.json`:
+You can also update the matching fields in `dics/index.json` (`level`, `tags`, `has_video`, etc.).
+
+### 6. Commit and push
+
+Once pushed to the `main` branch, GitHub Pages will publish the new content automatically.
+
+---
+
+## Data Formats
+
+### `dics/index.json`
+
+```json
+{
+  "language": "en",
+  "url": "https://leva13007.github.io/dictations",
+  "api": { "index": "/dics/index.json" },
+  "repository": "https://github.com/leva13007/dictations",
+  "created_at": "2024-03-19T12:00:00Z",
+  "updated_at": "2026-03-19T19:10:41.368Z",
+  "dics": [
+    {
+      "id": "0001",
+      "path": "/dics/0001/dic.json",
+      "title": "The Reading Crisis in Modern Society",
+      "level": "B2",
+      "sentences": 13,
+      "duration_sec": null,
+      "tags": [],
+      "features": [],
+      "type": "general",
+      "has_video": null
+    }
+  ]
+}
+```
+
+### `dics/<id>/dic.json`
+
+```json
+{
+  "id": "0001",
+  "title": "The Reading Crisis in Modern Society",
+  "level": "B2",
+  "sentences": 13,
+  "duration_sec": null,
+  "voice": {
+    "voice_name": null,
+    "voice_id": null,
+    "provider": "ElevenLabs",
+    "type": "man"
+  },
+  "features": [],
+  "tags": [],
+  "video": null,
+  "created_at": "2024-03-19T12:00:00Z"
+}
+```
+
+### `dics/<id>/playlist.json`
 
 ```json
 [
   {
     "id": 1,
-    "text": "My Dictation Title",
-    "audio": "dics/0004/sounds/0004-01.mp3"
+    "text": "The Reading Crisis in Modern Society",
+    "audio": "dics/0001/sounds/0001-01.mp3"
   },
   {
     "id": 2,
-    "text": "This is the first sentence of the dictation.",
-    "audio": "dics/0004/sounds/0004-02.mp3"
-  },
-  {
-    "id": 3,
-    "text": "This is the second sentence.",
-    "audio": "dics/0004/sounds/0004-03.mp3"
+    "text": "Over the past twenty years several studies have highlighted a decline in reading habits.",
+    "audio": "dics/0001/sounds/0001-02.mp3"
   }
 ]
 ```
-
-> **Note:** The `audio` path is relative to the site root (e.g. `dics/0004/sounds/0004-01.mp3`), not an absolute path.
-
-### 6. Register the dictation in the index
-
-Add an entry to `dics/index.json`:
-
-```json
-{
-  "dics": [
-    { "id": "0001", "title": "The Reading Crisis in Modern Society" },
-    { "id": "0002", "title": "Is Reading Always Beneficial?", "video": "https://youtu.be/SYihTCG_9Xk" },
-    { "id": "0003", "title": "Addressing the Reading Crisis" },
-    { "id": "0004", "title": "My Dictation Title" }
-  ]
-}
-```
-
-> **Optional:** If the dictation has an accompanying video (e.g. on YouTube), add a `"video"` field with the URL.
-
-### 7. Commit and push
-
-Once pushed to the `main` branch, GitHub Pages will publish the new content automatically.
 
 ---
 
@@ -161,22 +211,62 @@ Once pushed to the `main` branch, GitHub Pages will publish the new content auto
 This repository is published via GitHub Pages. The dictation app fetches content from the published URL:
 
 ```
-https://<username>.github.io/<repo-name>/dics/index.json
-https://<username>.github.io/<repo-name>/dics/<id>/playlist.json
-https://<username>.github.io/<repo-name>/dics/<id>/sounds/<id>-<nn>.mp3
+https://leva13007.github.io/dictations/dics/index.json
+https://leva13007.github.io/dictations/dics/<id>/dic.json
+https://leva13007.github.io/dictations/dics/<id>/playlist.json
+https://leva13007.github.io/dictations/dics/<id>/sounds/<id>-<nn>.mp3
 ```
-
-To use these dictations in the app, configure the app's data base URL to point to this GitHub Pages site.
 
 ---
 
 ## Checklist for a New Dictation
 
-- [ ] Created folder `dics/<id>/` with `sounds/` subfolder
-- [ ] *(optional)* Added `ReadMe.md` with description, level, video link, etc.
-- [ ] Wrote `Text.md` with title + one sentence per line
-- [ ] Generated MP3 files named `<id>-<nn>.mp3` (one per sentence)
-- [ ] Created `playlist.json` with correct `id`, `text`, and `audio` fields
-- [ ] Added entry to `dics/index.json`
-- [ ] Verified JSON files are valid (no trailing commas, proper quoting)
+- [ ] Created folder `dics/<id>/` with `Text.md`
+- [ ] Ran `yarn gen <id>` (generates `playlist.json`, `dic.json`, `sounds/`, updates `index.json`)
+- [ ] Added MP3 audio files to `sounds/`
+- [ ] *(optional)* Filled in metadata in `dic.json` (level, voice, tags, video)
+- [ ] *(optional)* Updated matching fields in `index.json` (level, tags, has_video)
+- [ ] *(optional)* Added `ReadMe.md` with description, level, video link
+- [ ] Bumped the version and updated `CHANGELOG.md` (see below)
 - [ ] Pushed to `main` and confirmed GitHub Pages deployment
+
+---
+
+## Versioning & Releasing
+
+The project version lives in `package.json` and is mirrored in `CHANGELOG.md`.
+
+### Bump the version
+
+Use `npm version` to bump the version automatically — it updates `package.json` and creates a git commit + tag in one step:
+
+```bash
+# Patch (0.0.1 → 0.0.2) — small fixes, metadata changes
+npm version patch -m "v%s"
+
+# Minor (0.0.2 → 0.1.0) — new dictation added
+npm version minor -m "v%s"
+
+# Major (0.1.0 → 1.0.0) — breaking structure changes
+npm version major -m "v%s"
+```
+
+### Update the changelog
+
+Add a new section at the top of `CHANGELOG.md` describing what changed:
+
+```markdown
+## [0.1.0] — 2026-03-19
+
+### Added
+
+- Dictation 0007 — "My New Dictation Title"
+```
+
+### Push with tags
+
+```bash
+git push && git push --tags
+```
+
+This pushes both the commit and the version tag to GitHub.

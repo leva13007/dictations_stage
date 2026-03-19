@@ -1,0 +1,20 @@
+{
+  "id": "0001",
+  "title": "The Reading Crisis in Modern Society",
+
+  "level": "B2",
+  "sentences": 13,
+  "duration_sec": null,
+
+  "voice": {
+    "voice_name": null,
+    "voice_id": null,
+    "provider": "ElevenLabs",
+    "type": "man"
+  },
+  "features": [],
+  "tags": [],
+
+  "video": null,
+  "created_at": "2024-03-19T12:00:00Z"
+}
