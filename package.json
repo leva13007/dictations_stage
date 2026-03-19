@@ -1,6 +1,6 @@
 {
   "name": "dictations",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dictation content (playlists, audio, texts) for the Dictation App — served via GitHub Pages",
   "private": true,
   "repository": {
