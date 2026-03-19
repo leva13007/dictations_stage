@@ -6,6 +6,12 @@ You can open that app by following the link above, or by visiting:
 
 [open in new tab](https://leva13007.github.io/dictation_app/)
 
+and insert build URL of this repository to the `Source URL` field:
+
+```
+https://leva13007.github.io/dictations/
+``` 
+
 ## Repository Structure
 
 ```
