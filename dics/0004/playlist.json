@@ -2,61 +2,73 @@
   {
     "id": 1,
     "text": "Living in a City",
-    "audio": "dics/0004/sounds/0004-01.mp3"
+    "audio": "dics/0004/sounds/0004-01.mp3",
+    "duration_sec": 1.72
   },
   {
     "id": 2,
     "text": "Living in a city can be described as a complex and dynamic experience that shapes different aspects of daily life.",
-    "audio": "dics/0004/sounds/0004-02.mp3"
+    "audio": "dics/0004/sounds/0004-02.mp3",
+    "duration_sec": 7
   },
   {
     "id": 3,
     "text": "In addition, urban environments offer access to essential services such as healthcare, education, and public transport.",
-    "audio": "dics/0004/sounds/0004-03.mp3"
+    "audio": "dics/0004/sounds/0004-03.mp3",
+    "duration_sec": 7.97
   },
   {
     "id": 4,
     "text": "Moreover, cities provide a wide range of career opportunities which attract people from different regions.",
-    "audio": "dics/0004/sounds/0004-04.mp3"
+    "audio": "dics/0004/sounds/0004-04.mp3",
+    "duration_sec": 6.19
   },
   {
     "id": 5,
     "text": "Furthermore, many individuals value the social and cultural diversity that cities create.",
-    "audio": "dics/0004/sounds/0004-05.mp3"
+    "audio": "dics/0004/sounds/0004-05.mp3",
+    "duration_sec": 5.41
   },
   {
     "id": 6,
     "text": "As a result, people are often exposed to new ideas, lifestyles, and perspectives.",
-    "audio": "dics/0004/sounds/0004-06.mp3"
+    "audio": "dics/0004/sounds/0004-06.mp3",
+    "duration_sec": 4.91
   },
   {
     "id": 7,
     "text": "However, city life is not without its difficulties.",
-    "audio": "dics/0004/sounds/0004-07.mp3"
+    "audio": "dics/0004/sounds/0004-07.mp3",
+    "duration_sec": 3.08
   },
   {
     "id": 8,
     "text": "High living costs and limited space can create both financial and psychological pressure for many residents.",
-    "audio": "dics/0004/sounds/0004-08.mp3"
+    "audio": "dics/0004/sounds/0004-08.mp3",
+    "duration_sec": 6.27
   },
   {
     "id": 9,
     "text": "In addition, noise and pollution may negatively affect overall quality of life.",
-    "audio": "dics/0004/sounds/0004-09.mp3"
+    "audio": "dics/0004/sounds/0004-09.mp3",
+    "duration_sec": 5.07
   },
   {
     "id": 10,
     "text": "Nevertheless, people continue to move to cities in search of better opportunities.",
-    "audio": "dics/0004/sounds/0004-10.mp3"
+    "audio": "dics/0004/sounds/0004-10.mp3",
+    "duration_sec": 4.13
   },
   {
     "id": 11,
     "text": "Consequently, urban populations continue to grow each year.",
-    "audio": "dics/0004/sounds/0004-11.mp3"
+    "audio": "dics/0004/sounds/0004-11.mp3",
+    "duration_sec": 3.79
   },
   {
     "id": 12,
     "text": "Thus, living in a city involves both advantages and challenges which must be carefully considered by individuals.",
-    "audio": "dics/0004/sounds/0004-12.mp3"
+    "audio": "dics/0004/sounds/0004-12.mp3",
+    "duration_sec": 7.31
   }
 ]

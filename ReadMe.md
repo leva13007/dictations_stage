@@ -28,7 +28,8 @@ dics/
 │       └── ...
 └── ...
 src/
-└── generate-playlist.ts        # Generation script
+├── generate-playlist.ts        # Generation script
+└── update-durations.ts         # Measures MP3 durations and updates metadata
 ```
 
 ## Available Dictations
@@ -110,7 +111,21 @@ sounds/
 
 Sentence numbers are zero-padded to two digits (`01`, `02`, … `99`).
 
-### 5. Fill in metadata (optional)
+### 5. Update durations
+
+Once all audio files are in place, run:
+
+```bash
+yarn durations <dic-id>
+```
+
+This measures each MP3 file and:
+
+- Adds `duration_sec` to every entry in `playlist.json`
+- Sets the total `duration_sec` in `dic.json`
+- Updates `duration_sec` in `dics/index.json`
+
+### 6. Fill in metadata (optional)
 
 Edit the generated `dic.json` to fill in known values:
 
@@ -136,7 +151,7 @@ Edit the generated `dic.json` to fill in known values:
 
 You can also update the matching fields in `dics/index.json` (`level`, `tags`, `has_video`, etc.).
 
-### 6. Commit and push
+### 7. Commit and push
 
 Once pushed to the `main` branch, GitHub Pages will publish the new content automatically.
 
@@ -161,7 +176,7 @@ Once pushed to the `main` branch, GitHub Pages will publish the new content auto
       "title": "The Reading Crisis in Modern Society",
       "level": "B2",
       "sentences": 13,
-      "duration_sec": null,
+      "duration_sec": 70.9,
       "tags": [],
       "features": [],
       "type": "general",
@@ -179,7 +194,7 @@ Once pushed to the `main` branch, GitHub Pages will publish the new content auto
   "title": "The Reading Crisis in Modern Society",
   "level": "B2",
   "sentences": 13,
-  "duration_sec": null,
+  "duration_sec": 70.9,
   "voice": {
     "voice_name": null,
     "voice_id": null,
@@ -200,12 +215,14 @@ Once pushed to the `main` branch, GitHub Pages will publish the new content auto
   {
     "id": 1,
     "text": "The Reading Crisis in Modern Society",
-    "audio": "dics/0001/sounds/0001-01.mp3"
+    "audio": "dics/0001/sounds/0001-01.mp3",
+    "duration_sec": 1.72
   },
   {
     "id": 2,
     "text": "Over the past twenty years several studies have highlighted a decline in reading habits.",
-    "audio": "dics/0001/sounds/0001-02.mp3"
+    "audio": "dics/0001/sounds/0001-02.mp3",
+    "duration_sec": 5.87
   }
 ]
 ```
@@ -230,6 +247,7 @@ https://leva13007.github.io/dictations/dics/<id>/sounds/<id>-<nn>.mp3
 - [ ] Created folder `dics/<id>/` with `Text.md`
 - [ ] Ran `yarn gen <id>` (generates `playlist.json`, `dic.json`, `sounds/`, updates `index.json`)
 - [ ] Added MP3 audio files to `sounds/`
+- [ ] Ran `yarn durations <id>` (updates `duration_sec` in `playlist.json`, `dic.json`, and `index.json`)
 - [ ] *(optional)* Filled in metadata in `dic.json` (level, voice, tags, video)
 - [ ] *(optional)* Updated matching fields in `index.json` (level, tags, has_video)
 - [ ] *(optional)* Added `ReadMe.md` with description, level, video link

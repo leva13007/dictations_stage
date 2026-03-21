@@ -1,11 +1,9 @@
 {
   "id": "0005",
   "title": "Working from Home",
-
   "level": "B2",
   "sentences": 19,
-  "duration_sec": null,
-
+  "duration_sec": 114.63,
   "voice": {
     "voice_name": "Chuck Miller - Deep, Raspy, American",
     "voice_id": "HIGUfNOdjuWQwwapnTRW",
@@ -13,8 +11,9 @@
     "type": "man"
   },
   "features": [],
-  "tags": ["business"],
-
+  "tags": [
+    "business"
+  ],
   "video": null,
   "created_at": "2024-03-19T12:00:00Z"
 }
