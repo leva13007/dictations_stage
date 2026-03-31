@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.0.4] — 2026-03-31
+
+### Changed
+- Simplified `index.json`: removed `api` object and `path` field from each dictation entry
+- Updated `url` in `index.json` from `/dictations` to `/dictations/dics`
+- Updated `ReadMe.md` data format examples to match the new `index.json` structure
+
 ## [0.0.3] — 2026-03-21
 
 ### Added

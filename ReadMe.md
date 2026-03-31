@@ -164,15 +164,13 @@ Once pushed to the `main` branch, GitHub Pages will publish the new content auto
 ```json
 {
   "language": "en",
-  "url": "https://leva13007.github.io/dictations",
-  "api": { "index": "/dics/index.json" },
+  "url": "https://leva13007.github.io/dictations/dics",
   "repository": "https://github.com/leva13007/dictations",
   "created_at": "2024-03-19T12:00:00Z",
   "updated_at": "2026-03-19T19:10:41.368Z",
   "dics": [
     {
       "id": "0001",
-      "path": "/dics/0001/dic.json",
       "title": "The Reading Crisis in Modern Society",
       "level": "B2",
       "sentences": 13,

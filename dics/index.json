@@ -1,16 +1,12 @@
 {
   "language": "en",
-  "url": "https://leva13007.github.io/dictations",
-  "api": {
-    "index": "/dics/index.json"
-  },
+  "url": "https://leva13007.github.io/dictations/dics",
   "repository": "https://github.com/leva13007/dictations",
   "created_at": "2024-03-19T12:00:00Z",
   "updated_at": "2026-03-19T19:10:41.368Z",
   "dics": [
     {
       "id": "0001",
-      "path": "/dics/0001/dic.json",
       "title": "The Reading Crisis in Modern Society",
       "level": "B2",
       "sentences": 13,
@@ -22,7 +18,6 @@
     },
     {
       "id": "0002",
-      "path": "/dics/0002/dic.json",
       "title": "Is Reading Always Beneficial?",
       "level": "B2",
       "sentences": 20,
@@ -34,7 +29,6 @@
     },
     {
       "id": "0003",
-      "path": "/dics/0003/dic.json",
       "title": "Addressing the Reading Crisis",
       "level": "B2",
       "sentences": 17,
@@ -46,7 +40,6 @@
     },
     {
       "id": "0004",
-      "path": "/dics/0004/dic.json",
       "title": "Living in a City",
       "level": "B2",
       "sentences": 12,
@@ -58,7 +51,6 @@
     },
     {
       "id": "0005",
-      "path": "/dics/0005/dic.json",
       "title": "Working from Home",
       "level": "B2",
       "sentences": 19,
@@ -72,7 +64,6 @@
     },
     {
       "id": "0006",
-      "path": "/dics/0006/dic.json",
       "title": "Studying English online",
       "level": "B2",
       "sentences": 23,
