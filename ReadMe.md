@@ -213,13 +213,13 @@ Once pushed to the `main` branch, GitHub Pages will publish the new content auto
   {
     "id": 1,
     "text": "The Reading Crisis in Modern Society",
-    "audio": "dics/0001/sounds/0001-01.mp3",
+    "audio": "0001-01.mp3",
     "duration_sec": 1.72
   },
   {
     "id": 2,
     "text": "Over the past twenty years several studies have highlighted a decline in reading habits.",
-    "audio": "dics/0001/sounds/0001-02.mp3",
+    "audio": "0001-02.mp3",
     "duration_sec": 5.87
   }
 ]
