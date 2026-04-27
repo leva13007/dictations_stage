@@ -118,11 +118,15 @@ jobs:
         run: |
           echo "Triggering smoke tests against prod..."
 
-          gh api \
-            repos/leva13007/dictations_testing_playwright/dispatches \
+          echo '{
+            "event_type": "run-tests",
+            "client_payload": {
+              "api_url": "https://leva13007.github.io/dictations_prod/dics/",
+              "environment": "prod"
+            }
+          }' | gh api repos/leva13007/dictations_testing_playwright/dispatches \
             --method POST \
-            --field event_type=run-tests \
-            --field client_payload='{"api_url":"https://leva13007.github.io/dictations/dics/","environment":"prod"}'
+            --input -
 
           echo "✅ Smoke test triggered!"
           echo "Check progress at: https://github.com/leva13007/dictations_testing_playwright/actions"
