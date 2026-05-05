@@ -10,12 +10,14 @@
   "homepage": "https://leva13007.github.io/dictations/",
   "scripts": {
     "gen": "tsx src/generate-playlist.ts",
-    "durations": "tsx src/update-durations.ts"
+    "durations": "tsx src/update-durations.ts",
+    "tts": "tsx src/generate-audio.ts"
   },
   "author": "leva13007",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^25.5.0",
+    "dotenv": "^17.4.2",
     "mp3-duration": "^1.1.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
