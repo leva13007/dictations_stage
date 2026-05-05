@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.0.8] — 2026-05-05
+
+### Added
+- `src/generate-audio.ts` — full TTS pipeline script: parses `Text.md`, generates `playlist.json`/`dic.json`, calls ElevenLabs API, measures durations, updates `index.json` in a single run
+- `yarn tts <dic-id> [--voice <voice_id>]` npm script
+- `.env.example` — documents required and optional ElevenLabs env variables
+- `dotenv` dev dependency
+- `CLAUDE.md` — project guidance for Claude
+- Dictation `0007` — Silicon Valley — Review (27 sentences, 162.04s, voice: Sam)
+
+## [0.0.7] — 2026-05-05
+
+### Fixed
+- Smoke tests in `.github/workflows/release-to-prod.yml`
+
+## [0.0.6] — 2026-04-20
+
+### Added
+- `.github/workflows/release-to-prod.yml` — GitHub Actions workflow for production releases
+
+## [0.0.5] — 2026-04-10
+
+### Changed
+- Simplified audio paths in `playlist.json`: from `dics/<id>/sounds/<id>-NN.mp3` to `<id>-NN.mp3`
+- Updated `ReadMe.md`
+
 ## [0.0.4] — 2026-03-31
 
 ### Changed
