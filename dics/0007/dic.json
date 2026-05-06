@@ -1,14 +1,14 @@
 {
   "id": "0007",
   "title": "Silicon Valley — Review",
-  "level": null,
+  "level": "B2",
   "sentences": 27,
   "duration_sec": 162.04,
   "voice": {
     "voice_id": "G7ILShrCNLfmS0A37SXS",
     "voice_name": "Sam - Neutral, Friendly and Clear",
     "provider": "ElevenLabs",
-    "type": null
+    "type": "man"
   },
   "features": [],
   "tags": [],
