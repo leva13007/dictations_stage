@@ -28,8 +28,9 @@ dics/
 │       └── ...
 └── ...
 src/
-├── generate-playlist.ts        # Generation script
-└── update-durations.ts         # Measures MP3 durations and updates metadata
+├── generate-playlist.ts        # Generates playlist.json / dic.json / index.json from Text.md
+├── update-durations.ts         # Measures MP3 durations and updates metadata
+└── generate-audio.ts           # Full TTS pipeline: gen + ElevenLabs audio + durations
 ```
 
 ## Available Dictations
@@ -42,6 +43,8 @@ src/
 | 0004 | Living in a City | B2 | — |
 | 0005 | Working from Home | B2 | — |
 | 0006 | Studying English online | B2 | — |
+| 0007 | Silicon Valley — Review | — | — |
+| 0008 | Linkin Park — Review | B2 | — |
 
 ## File Descriptions
 
@@ -77,55 +80,60 @@ Numbers should be written out as words, for example twenty five.
 
 If the file contains a `---` separator, the script uses only the **last section** (useful for keeping drafts/notes at the top).
 
-### 3. Run the generation script
+### 3. Generate audio (two options)
+
+#### Option A — Automated via ElevenLabs TTS (recommended)
+
+Make sure `.env` contains `ELEVEN_API_KEY`, then run:
+
+```bash
+yarn tts <dic-id> [--voice <voice_id>]
+```
+
+This single command does **everything**:
+
+- Creates `playlist.json`, `dic.json`, `sounds/`, updates `index.json`
+- Generates MP3 audio via ElevenLabs for every sentence
+- Measures durations and fills `duration_sec` in all files
+- Writes voice metadata (`voice_id`, `voice_name`, `provider`) into `dic.json`
+
+Available voices (built-in map):
+
+| Voice ID | Name |
+|---|---|
+| `G7ILShrCNLfmS0A37SXS` | Sam - Neutral, Friendly and Clear |
+| `4CrZuIW9am7gYAxgo2Af` | Shelley - Clear, Confident and British |
+| `VsQmyFHffusQDewmHB5v` | Eddie Stirling - British Corporate |
+| `oTQK6KgOJHp8UGGZjwUu` | Dexter - Dynamic, Bold and British |
+| `tnSpp4vdxKPjI9w0GnoV` | Hope - Upbeat and Clear |
+| `1SM7GgM6IMuvQlz2BwM3` | Mark - Casual, Relaxed and Light |
+| `c6SfcYrb2t09NHXiT80T` | Jarnathan - Confident and Versatile |
+
+#### Option B — Manual
+
+Run the generation script:
 
 ```bash
 yarn gen <dic-id>
 ```
 
-This single command does everything:
+This creates `playlist.json`, `dic.json`, `sounds/` and updates `index.json`.
 
-- Creates `playlist.json` from the sentences in `Text.md`
-- Creates `dic.json` with metadata (unknown fields set to `null` / empty arrays)
-- Creates the `sounds/` folder if it doesn't exist
-- Adds (or updates) the entry in `dics/index.json`
-
-### 4. Add audio files
-
-Place one MP3 file per sentence in the `sounds/` folder using the naming convention:
+Then place MP3 files manually in `sounds/` following the naming convention:
 
 ```
-<dic-id>-<sentence-number>.mp3
+<dic-id>-01.mp3
+<dic-id>-02.mp3
+...
 ```
 
-For example, dictation `0007` with 5 sentences:
-
-```
-sounds/
-├── 0007-01.mp3
-├── 0007-02.mp3
-├── 0007-03.mp3
-├── 0007-04.mp3
-└── 0007-05.mp3
-```
-
-Sentence numbers are zero-padded to two digits (`01`, `02`, … `99`).
-
-### 5. Update durations
-
-Once all audio files are in place, run:
+Once all audio files are in place, measure durations:
 
 ```bash
 yarn durations <dic-id>
 ```
 
-This measures each MP3 file and:
-
-- Adds `duration_sec` to every entry in `playlist.json`
-- Sets the total `duration_sec` in `dic.json`
-- Updates `duration_sec` in `dics/index.json`
-
-### 6. Fill in metadata (optional)
+### 4. Fill in metadata (optional)
 
 Edit the generated `dic.json` to fill in known values:
 
@@ -151,7 +159,7 @@ Edit the generated `dic.json` to fill in known values:
 
 You can also update the matching fields in `dics/index.json` (`level`, `tags`, `has_video`, etc.).
 
-### 7. Commit and push
+### 5. Commit and push
 
 Once pushed to the `main` branch, GitHub Pages will publish the new content automatically.
 
@@ -243,10 +251,9 @@ https://leva13007.github.io/dictations/dics/<id>/sounds/<id>-<nn>.mp3
 ## Checklist for a New Dictation
 
 - [ ] Created folder `dics/<id>/` with `Text.md`
-- [ ] Ran `yarn gen <id>` (generates `playlist.json`, `dic.json`, `sounds/`, updates `index.json`)
-- [ ] Added MP3 audio files to `sounds/`
-- [ ] Ran `yarn durations <id>` (updates `duration_sec` in `playlist.json`, `dic.json`, and `index.json`)
-- [ ] *(optional)* Filled in metadata in `dic.json` (level, voice, tags, video)
+- [ ] **Option A (TTS):** Ran `yarn tts <id> [--voice <voice_id>]` — generates everything and produces audio in one step
+- [ ] **Option B (manual):** Ran `yarn gen <id>` → placed MP3s in `sounds/` → ran `yarn durations <id>`
+- [ ] *(optional)* Filled in metadata in `dic.json` (level, voice.type, tags, video)
 - [ ] *(optional)* Updated matching fields in `index.json` (level, tags, has_video)
 - [ ] *(optional)* Added `ReadMe.md` with description, level, video link
 - [ ] Bumped the version and updated `CHANGELOG.md` (see below)
