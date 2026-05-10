@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.0.9] — 2026-05-10
+
+### Added
+- Dictation `0008` — Linkin Park — Review (26 sentences, 155.01s, voice: Jarnathan, level: B2)
+- Dictation `0009` — "We Will Rock You" — Review (30 sentences, 167.81s, voice: Shelley, level: B2)
+
+### Fixed
+- `src/generate-audio.ts` (`phaseDurations`): resolved audio paths relative to `sounds/` directory instead of repo root — MP3 files were silently skipped when `playlist.json` stores only the bare filename (e.g. `0008-01.mp3`)
+
 ## [0.0.8] — 2026-05-05
 
 ### Added

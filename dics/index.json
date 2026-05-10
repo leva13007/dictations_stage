@@ -3,7 +3,7 @@
   "url": "https://leva13007.github.io/dictations/dics",
   "repository": "https://github.com/leva13007/dictations",
   "created_at": "2024-03-19T12:00:00Z",
-  "updated_at": "2026-05-05T21:49:36.988Z",
+  "updated_at": "2026-05-10T19:42:25.624Z",
   "dics": [
     {
       "id": "0001",
@@ -75,11 +75,32 @@
     },
     {
       "id": "0007",
-      "path": "/dics/0007/dic.json",
       "title": "Silicon Valley — Review",
       "level": "B2",
       "sentences": 27,
       "duration_sec": 162.04,
+      "tags": [],
+      "features": [],
+      "type": "general",
+      "has_video": null
+    },
+    {
+      "id": "0008",
+      "title": "Linkin Park — Review",
+      "level": "B2",
+      "sentences": 26,
+      "duration_sec": 155.01,
+      "tags": [],
+      "features": [],
+      "type": "general",
+      "has_video": null
+    },
+    {
+      "id": "0009",
+      "title": "“We Will Rock You” — Review",
+      "level": "B2",
+      "sentences": 30,
+      "duration_sec": 167.81,
       "tags": [],
       "features": [],
       "type": "general",
