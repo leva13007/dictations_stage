@@ -43,7 +43,7 @@ src/
 | 0004 | Living in a City | B2 | — |
 | 0005 | Working from Home | B2 | — |
 | 0006 | Studying English online | B2 | — |
-| 0007 | Silicon Valley — Review | — | — |
+| 0007 | Silicon Valley — Review | B2 | — |
 | 0008 | Linkin Park — Review | B2 | — |
 
 ## File Descriptions
