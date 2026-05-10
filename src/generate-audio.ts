@@ -71,7 +71,6 @@ interface DicMeta {
 
 interface IndexEntry {
   id: string;
-  path: string;
   title: string;
   level: string | null;
   sentences: number;
@@ -195,7 +194,7 @@ function phaseGen(
     return {
       id: index + 1,
       text,
-      audio: `dics/${dicId}/sounds/${dicId}-${nn}.mp3`,
+      audio: `${dicId}-${nn}.mp3`,
     };
   });
 
@@ -230,14 +229,12 @@ function phaseGen(
   const existing = index.dics.find((d) => d.id === dicId);
 
   if (existing) {
-    existing.path = `/dics/${dicId}/dic.json`;
     existing.title = title;
     existing.sentences = sentenceCount;
     console.log(`  ⚠️  ${dicId} already in index.json — updated`);
   } else {
     index.dics.push({
       id: dicId,
-      path: `/dics/${dicId}/dic.json`,
       title,
       level: null,
       sentences: sentenceCount,
@@ -384,7 +381,7 @@ async function phaseDurations(
   let totalDuration = 0;
 
   for (const entry of playlist) {
-    const audioPath = path.join(repoRoot, entry.audio);
+    const audioPath = path.join(soundsDir, entry.audio);
 
     if (!fs.existsSync(audioPath)) {
       console.warn(`  ⚠️  Skipping missing file: ${entry.audio}`);

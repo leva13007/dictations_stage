@@ -42,7 +42,6 @@ interface DicMeta {
 
 interface IndexEntry {
   id: string;
-  path: string;
   title: string;
   level: string | null;
   sentences: number;
@@ -138,7 +137,7 @@ function main(): void {
     return {
       id: index + 1,
       text,
-      audio: `dics/${dicId}/sounds/${dicId}-${sentenceNum}.mp3`,
+      audio: `${dicId}-${sentenceNum}.mp3`,
     };
   });
 
@@ -191,13 +190,11 @@ function main(): void {
   const existing = index.dics.find((d) => d.id === dicId);
   if (existing) {
     console.log(`⚠️  Dictation ${dicId} already exists in index.json — updating it`);
-    existing.path = `/dics/${dicId}/dic.json`;
     existing.title = title;
     existing.sentences = sentenceCount;
   } else {
     const newEntry: IndexEntry = {
       id: dicId,
-      path: `/dics/${dicId}/dic.json`,
       title,
       level: null,
       sentences: sentenceCount,

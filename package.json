@@ -11,7 +11,8 @@
   "scripts": {
     "gen": "tsx src/generate-playlist.ts",
     "durations": "tsx src/update-durations.ts",
-    "tts": "tsx src/generate-audio.ts"
+    "tts": "tsx src/generate-audio.ts",
+    "serve": "serve . --cors -p 4737"
   },
   "author": "leva13007",
   "license": "MIT",
@@ -19,6 +20,7 @@
     "@types/node": "^25.5.0",
     "dotenv": "^17.4.2",
     "mp3-duration": "^1.1.0",
+    "serve": "^14.2.4",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
