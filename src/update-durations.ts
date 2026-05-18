@@ -77,6 +77,8 @@ async function main(): Promise<void> {
   const dicJsonPath = path.join(dicDir, "dic.json");
   const indexPath = path.join(repoRoot, "dics", "index.json");
 
+  console.log("\n\ndicDir:", dicDir)
+
   // ── Validate ────────────────────────────────────────────────────
 
   if (!fs.existsSync(soundsDir)) {
@@ -105,7 +107,9 @@ async function main(): Promise<void> {
   let totalDuration = 0;
 
   for (const entry of playlist) {
-    const audioPath = path.join(repoRoot, entry.audio);
+    const audioPath = path.join(soundsDir, entry.audio);
+
+    console.log("\naudioPath:", audioPath)
 
     if (!fs.existsSync(audioPath)) {
       console.warn(`⚠️  Audio file not found, skipping: ${entry.audio}`);
