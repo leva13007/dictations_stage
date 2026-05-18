@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [0.1.0] — 2026-05-18
+## [0.0.10] — 2026-05-18
 
 ### Added
 - Dictation `0010` — International Visitor Numbers (2016–2025) (21 sentences, 142.37s, voice: Sam, level: B2)
