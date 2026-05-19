@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.0.11] — 2026-05-19
+
+### Added
+- Dictation `0011` — Complaint About School Dance Catering Service (18 sentences, 73.53s, voice: Sam, level: B2)
+
 ## [0.0.10] — 2026-05-18
 
 ### Added

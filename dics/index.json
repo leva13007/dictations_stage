@@ -3,7 +3,7 @@
   "url": "https://leva13007.github.io/dictations/dics",
   "repository": "https://github.com/leva13007/dictations",
   "created_at": "2024-03-19T12:00:00Z",
-  "updated_at": "2026-05-18T21:39:50.563Z",
+  "updated_at": "2026-05-19T22:40:54.385Z",
   "dics": [
     {
       "id": "0001",
@@ -112,6 +112,17 @@
       "level": "B2",
       "sentences": 21,
       "duration_sec": 142.37,
+      "tags": [],
+      "features": [],
+      "type": "general",
+      "has_video": null
+    },
+    {
+      "id": "0011",
+      "title": "Complaint About School Dance Catering Service",
+      "level": "B2",
+      "sentences": 18,
+      "duration_sec": 73.53,
       "tags": [],
       "features": [],
       "type": "general",

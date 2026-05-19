@@ -1,0 +1,17 @@
+{
+  "id": "0011",
+  "title": "Complaint About School Dance Catering Service",
+  "level": "B2",
+  "sentences": 18,
+  "duration_sec": 73.53,
+  "voice": {
+    "voice_id": "G7ILShrCNLfmS0A37SXS",
+    "voice_name": "Sam - Neutral, Friendly and Clear",
+    "provider": "ElevenLabs",
+    "type": "man"
+  },
+  "features": [],
+  "tags": [],
+  "video": null,
+  "created_at": "2026-05-19T22:40:54.385Z"
+}
