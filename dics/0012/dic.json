@@ -1,0 +1,17 @@
+{
+  "id": "0012",
+  "title": "Complaint about poor delivery service",
+  "level": "B2",
+  "sentences": 18,
+  "duration_sec": 70.87,
+  "voice": {
+    "voice_id": "1SM7GgM6IMuvQlz2BwM3",
+    "voice_name": "Mark - Casual, Relaxed and Light",
+    "provider": "ElevenLabs",
+    "type": "man"
+  },
+  "features": [],
+  "tags": [],
+  "video": null,
+  "created_at": "2026-06-06T22:34:42.156Z"
+}

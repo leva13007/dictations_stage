@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "text": "Complaint about poor delivery service",
+    "audio": "0012-01.mp3",
+    "duration_sec": 1.78
+  },
+  {
+    "id": 2,
+    "text": "Dear Sir/Madam,",
+    "audio": "0012-02.mp3",
+    "duration_sec": 0.99
+  },
+  {
+    "id": 3,
+    "text": "I am writing to make a formal complaint about the poor delivery service I received from DPD on 25th of April 2025.",
+    "audio": "0012-03.mp3",
+    "duration_sec": 7
+  },
+  {
+    "id": 4,
+    "text": "I was expecting my parcel to be delivered to my home address, but the delivery was not completed in a proper way.",
+    "audio": "0012-04.mp3",
+    "duration_sec": 5.49
+  },
+  {
+    "id": 5,
+    "text": "According to the tracking information, the driver claimed that they had attempted delivery and provided a photograph as proof.",
+    "audio": "0012-05.mp3",
+    "duration_sec": 5.64
+  },
+  {
+    "id": 6,
+    "text": "However, this does not show a genuine delivery attempt.",
+    "audio": "0012-06.mp3",
+    "duration_sec": 2.85
+  },
+  {
+    "id": 7,
+    "text": "The driver only stopped their vehicle near my address, took a photograph of the house from their car, and then left without coming to the door.",
+    "audio": "0012-07.mp3",
+    "duration_sec": 6.32
+  },
+  {
+    "id": 8,
+    "text": "Nobody from DPD rang the doorbell, knocked on the door, or contacted me by phone.",
+    "audio": "0012-08.mp3",
+    "duration_sec": 4.05
+  },
+  {
+    "id": 9,
+    "text": "I was available to receive the parcel, but the driver did not make any real effort to deliver it.",
+    "audio": "0012-09.mp3",
+    "duration_sec": 4.28
+  },
+  {
+    "id": 10,
+    "text": "The photograph appears to have been taken only to show the company that the driver had been at the location, even though the delivery service was not actually provided.",
+    "audio": "0012-10.mp3",
+    "duration_sec": 7.73
+  },
+  {
+    "id": 11,
+    "text": "I find this behaviour unacceptable and very disappointing.",
+    "audio": "0012-11.mp3",
+    "duration_sec": 2.95
+  },
+  {
+    "id": 12,
+    "text": "Customers should be able to trust that delivery drivers will make a proper attempt to deliver their parcels.",
+    "audio": "0012-12.mp3",
+    "duration_sec": 4.94
+  },
+  {
+    "id": 13,
+    "text": "I would like DPD to investigate this incident and explain why the driver failed to complete the delivery correctly.",
+    "audio": "0012-13.mp3",
+    "duration_sec": 5.46
+  },
+  {
+    "id": 14,
+    "text": "I also expect my parcel to be delivered as soon as possible and for steps to be taken to prevent this happening again.",
+    "audio": "0012-14.mp3",
+    "duration_sec": 5.9
+  },
+  {
+    "id": 15,
+    "text": "I look forward to receiving your response within 14 days.",
+    "audio": "0012-15.mp3",
+    "duration_sec": 2.8
+  },
+  {
+    "id": 16,
+    "text": "Yours faithfully,",
+    "audio": "0012-16.mp3",
+    "duration_sec": 1.1
+  },
+  {
+    "id": 17,
+    "text": "Anna Johnson",
+    "audio": "0012-17.mp3",
+    "duration_sec": 0.89
+  },
+  {
+    "id": 18,
+    "text": "Manager",
+    "audio": "0012-18.mp3",
+    "duration_sec": 0.71
+  }
+]
