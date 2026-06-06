@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [0.0.12] — 2026-06-06
 
 ### Added
-- Dictation `0012` — Complaint about poor delivery service (18 sentences, 70.87s, voice: M~ark, level: B2)
+- Dictation `0012` — Complaint about poor delivery service (18 sentences, 70.87s, voice: Mark, level: B2)
 
 ## [0.0.11] — 2026-05-19
 
