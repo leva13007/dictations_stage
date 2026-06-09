@@ -1,3 +1,9 @@
+---
+status: pause
+category: apps
+stack: TypeScript, Node.js, ElevenLabs
+---
+
 # Dictation Content Repository
 
 This repository contains dictation content (playlists, audio files, and texts) for the [Dictation App](https://github.com/leva13007/dictation_app). It is published via **GitHub Pages** and serves as the data source for the app.
