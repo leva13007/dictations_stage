@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.0.13] — 2026-06-10
+
+### Added
+- Dictation `0013` — The global share of coffee production. (9 sentences, 85.52s, voice: Shelley, level: B2)
+
 ## [0.0.12] — 2026-06-06
 
 ### Added

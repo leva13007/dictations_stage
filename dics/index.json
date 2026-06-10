@@ -3,7 +3,7 @@
   "url": "https://leva13007.github.io/dictations/dics",
   "repository": "https://github.com/leva13007/dictations",
   "created_at": "2024-03-19T12:00:00Z",
-  "updated_at": "2026-06-06T22:34:42.156Z",
+  "updated_at": "2026-06-10T23:39:19.632Z",
   "dics": [
     {
       "id": "0001",
@@ -134,6 +134,17 @@
       "level": "B2",
       "sentences": 18,
       "duration_sec": 70.87,
+      "tags": [],
+      "features": [],
+      "type": "general",
+      "has_video": null
+    },
+    {
+      "id": "0013",
+      "title": "The global share of coffee production.",
+      "level": "B2",
+      "sentences": 9,
+      "duration_sec": 85.52,
       "tags": [],
       "features": [],
       "type": "general",
