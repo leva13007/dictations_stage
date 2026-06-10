@@ -1,0 +1,17 @@
+{
+  "id": "0013",
+  "title": "The global share of coffee production.",
+  "level": "B2",
+  "sentences": 9,
+  "duration_sec": 85.52,
+  "voice": {
+    "voice_id": "4CrZuIW9am7gYAxgo2Af",
+    "voice_name": "Shelley - Clear, Confident and British",
+    "provider": "ElevenLabs",
+    "type": "man"
+  },
+  "features": [],
+  "tags": [],
+  "video": null,
+  "created_at": "2026-06-10T23:39:19.632Z"
+}
